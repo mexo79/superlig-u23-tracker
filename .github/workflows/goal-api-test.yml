@@ -1,4 +1,4 @@
-name: Validate GOAL API connection
+name: Validate GOAL API official Python SDK
 on:
   push:
     branches: [main]
@@ -10,63 +10,43 @@ permissions:
 jobs:
   inspect:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 6
     steps:
-      - name: Safely check key and provider access
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install official GOAL API SDK
+        run: pip install goal-api
+      - name: Test officially supported SDK (no secret disclosure)
         env:
           GOAL_API_KEY: ${{ secrets.GOAL_API_KEY }}
         run: |
           python - <<'PY'
-          import json, os, urllib.request, urllib.error
+          import os
+          from goal_api import GoalAPI, GoalAPIError
           key=os.getenv("GOAL_API_KEY","")
           if not key:
-              raise SystemExit("SECRET_STATUS=MISSING. Create GOAL_API_KEY in Actions repository secrets.")
+              raise SystemExit("GOAL_API_KEY missing")
           print("SECRET_STATUS=PRESENT")
-          base="https://api.goal-api.com/v1"
-          results=[]
-          for path in ("/leagues?limit=1", "/leagues/cmr77dw0q00eprx06rqew3m48", "/players/search?q=Dorgeles%20Nene"):
-              req=urllib.request.Request(base+path,headers={"Authorization":"Bearer "+key,"Accept":"application/json"})
-              try:
-                  with urllib.request.urlopen(req,timeout=18) as res:
-                      data=json.load(res)
-                      print("ENDPOINT",path,"HTTP",res.status)
-                      if isinstance(data,dict):
-                          print("RESPONSE_KEYS",sorted(data.keys())[:18])
-                          payload=data.get("data",None)
-                          if isinstance(payload,dict):
-                              print("DATA_KEYS",sorted(payload.keys())[:28])
-                          elif isinstance(payload,list):
-                              print("DATA_COUNT",len(payload))
-                              if payload and isinstance(payload[0],dict):
-                                  print("FIRST_ROW_KEYS",sorted(payload[0].keys())[:30])
-                      results.append(True)
-              except urllib.error.HTTPError as e:
-                  raw=e.read(3000).decode("utf-8","replace")
-                  print("RESPONSE_META", "content-type="+str(e.headers.get("Content-Type","?")), "server="+str(e.headers.get("Server","?")), "html="+str(raw.lstrip().startswith("<")))
-                  if "<title>" in raw.lower():
-                      i=raw.lower().find("<title>")+7
-                      title=raw[i:i+120].split("<")[0].replace(key,"[REDACTED]")
-                      print("HTML_TITLE",title)
-                  try:
-                      body=json.loads(raw)
-                  except (ValueError,TypeError):
-                      body={}
-                  print("ERROR_FIELDS",sorted(body.keys()) if isinstance(body,dict) else type(body).__name__)
-                  if isinstance(body,dict):
-                      for field in ("error","message","code","detail","status"):
-                          val=body.get(field)
-                          if val is not None:
-                              print("ERROR_"+field.upper(),str(val).replace(key,"[REDACTED]")[:180])
-                  detail=body.get("error") if isinstance(body,dict) else None
-                  if isinstance(detail,dict): detail=str(detail.get("code") or detail.get("category") or "")
-                  if not detail and isinstance(body,dict): detail=body.get("code") or body.get("message") or ""
-                  detail=str(detail).replace(key,"[REDACTED]")[:150]
-                  print("ENDPOINT",path,"HTTP",e.code,"ERROR_TYPE",detail)
-                  results.append(False)
-              except Exception as e:
-                  print("ENDPOINT",path,"ERROR_TYPE",type(e).__name__)
-                  results.append(False)
-          if not all(results):
-              raise SystemExit("GOAL API access incomplete; no spreadsheet update attempted.")
-          print("API connection OK; schema inspection done. No spreadsheet updates attempted.")
+          try:
+              with GoalAPI(key,timeout=20,max_retries=0) as client:
+                  calls=[
+                    ("leagues.list",lambda:client.leagues.list(limit=1)),
+                    ("players.search",lambda:client.players.search("Dorgeles Nene",limit=2)),
+                  ]
+                  for label, call in calls:
+                      try:
+                          res=call()
+                          print(label,"SUCCESS",sorted(res.keys()) if isinstance(res,dict) else type(res).__name__)
+                          if isinstance(res,dict) and isinstance(res.get("data"),list):
+                              print(label,"ROWS",len(res["data"]))
+                              if res["data"] and isinstance(res["data"][0],dict):
+                                  print(label,"FIELDS",sorted(res["data"][0].keys())[:30])
+                      except GoalAPIError as exc:
+                          print(label,"API_ERROR",str(getattr(exc,"code","unknown"))[:120])
+                          raise
+          except Exception as exc:
+              print("REQUEST_ERROR_TYPE",type(exc).__name__)
+              raise
+          print("GOAL SDK API TEST PASSED — NO SHEET ROWS MODIFIED")
           PY
