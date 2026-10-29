@@ -32,10 +32,17 @@ def main():
     with GoalAPI(os.environ["GOAL_API_KEY"],timeout=30,max_retries=1) as c:
         tr=c.leagues.teams(LEAGUE,season="2026/2027",limit=100)["data"]
         print("CLUB_SET "+json.dumps(sorted(t["name"] for t in tr),ensure_ascii=False))
-        result=c.leagues.results(LEAGUE,**{"from":"2026-08-01","to":now.strftime("%Y-%m-%d"),"limit":100})
-        games=result["data"]
-        if result.get("pagination",{}).get("hasMore"):
-            raise RuntimeError("More than 100 completed games; implement pagination before importing")
+        games=[]
+        for offset in range(0,600,100):
+            result=c.leagues.results(LEAGUE,**{"from":"2026-08-01","to":now.strftime("%Y-%m-%d"),"limit":100,"offset":offset})
+            page=result.get("data",[])
+            if not isinstance(page,list):
+                raise RuntimeError("Unexpected league results page")
+            games.extend(page)
+            if not result.get("pagination",{}).get("hasMore"):
+                break
+        else:
+            raise RuntimeError("Season fixture pagination exceeded 600 matches")
         games=[x for x in games if x.get("matchStatus") in ("FINISHED","AFTER_ET","AFTER_PEN") and x.get("leagueYear")=="2026/2027"]
         if len(games)<40:
             raise RuntimeError(f"Suspicious season coverage: {len(games)} fixtures")
