@@ -1,54 +1,56 @@
-name: Probe 2026-27 Super Lig player data
+name: Probe current 2026-27 fixture events and player match stats
 on:
   push:
-    paths:
-      - '.github/workflows/goal-initial-probe.yml'
     branches: [main]
+    paths: ['.github/workflows/goal-initial-probe.yml']
   workflow_dispatch:
 permissions:
   contents: read
 jobs:
-  probe:
+  inspect:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 7
     steps:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       - run: pip install goal-api
-      - name: Inspect current season and candidate player statistics
+      - name: Probe finished fixture lineups and events
         env:
           GOAL_API_KEY: ${{ secrets.GOAL_API_KEY }}
         run: |
           python - <<'PY'
-          import os, json
+          import os,json
           from goal_api import GoalAPI
           ID="cmr77dw0q00eprx06rqew3m48"
-          with GoalAPI(os.environ["GOAL_API_KEY"],timeout=23,max_retries=0) as client:
-              checks=[
-                ("league.get",lambda:client.leagues.get(ID)),
-                ("league.teams",lambda:client.leagues.teams(ID,season="2026-2027",limit=100)),
-                ("league.results",lambda:client.leagues.results(ID,limit=3)),
-                ("player.search.Nene",lambda:client.players.search("Dorgeles Nene",limit=10)),
-                ("player.search.Kacper",lambda:client.players.search("Kacper Kozlowski",limit=10)),
-              ]
-              samples=[]
-              for label,method in checks:
+          def preview(label,obj,maxlen=6000):
+              print("PROBE",label,json.dumps(obj,ensure_ascii=False,default=str)[:maxlen])
+          with GoalAPI(os.environ["GOAL_API_KEY"],timeout=24,max_retries=0) as g:
+              for method in [
+                  ("league.teams.no-season",lambda:g.leagues.teams(ID,limit=100)),
+                  ("league.teams.slash-season",lambda:g.leagues.teams(ID,season="2026/2027",limit=100)),
+                  ("teams.list",lambda:g.teams.list(leagueId=ID,limit=100)),
+                  ("league.results",lambda:g.leagues.results(ID,**{"from":"2026-08-01","to":"2026-10-29","limit":100})),
+              ]:
+                  label,fun=method
                   try:
-                      r=method()
-                      d=r.get("data",[])
-                      if label.startswith("player.search") and isinstance(d,list):
-                          for p in d:
-                              if p.get("id") and len(samples)<4: samples.append((label,p))
-                      print("PROBE",label,json.dumps(d[:3] if isinstance(d,list) else d,ensure_ascii=False,default=str)[:4000])
-                      if isinstance(d,list): print("PROBE_COUNT",label,len(d),"PAGE",str(r.get("pagination"))[:150])
+                      data=fun()
+                      rows=data.get("data",[])
+                      preview(label,{"count":len(rows),"pagination":data.get("pagination"),"sample":rows[:2]},2800)
+                      if label=="league.results" and rows:
+                          first=next((x for x in rows if x.get("matchStatus")=="FINISHED"),rows[0])
+                          matchid=first["id"]
                   except Exception as e:
-                      print("PROBE_ERROR",label,type(e).__name__,str(e)[:180])
-              for label,p in samples[:4]:
+                      print("PROBE_ERROR",label,type(e).__name__,str(e)[:200])
+              for label,method in [
+                  ("lineups",lambda:g.fixtures.lineups(matchid)),
+                  ("events",lambda:g.fixtures.events(matchid)),
+                  ("fixture",lambda:g.fixtures.get(matchid)),
+                  ("statistics",lambda:g.fixtures.statistics(matchid))
+              ]:
                   try:
-                      rid=str(p["id"])
-                      r=client.players.statistics(rid,season="2026-2027")
-                      print("STAT_FOR",label,json.dumps({"name":p.get("name"),"playerId":rid,"data":r.get("data")},ensure_ascii=False,default=str)[:4000])
+                      d=method()
+                      preview(label,d.get("data"),7000)
                   except Exception as e:
-                      print("STAT_ERROR",label,type(e).__name__,str(e)[:200])
+                      print("PROBE_ERROR",label,type(e).__name__,str(e)[:200])
           PY
