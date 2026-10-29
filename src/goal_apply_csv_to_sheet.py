@@ -50,7 +50,7 @@ def main():
         for r in rows[1:]:
             key=r[1]+"|"+r[2]
             v=totals[key]
-            out.append([numeric(v.get(k)) for k in ("minutes","matches","starts","rating","goals","assists","yellow","red")])
+            out.append([numeric(v.get(k)) for k in ("minutes","matches","starts")]+[(numeric(v.get("rating_x100"))/100 if numeric(v.get("rating_x100")) != "" else "")]+[numeric(v.get(k)) for k in ("goals","assists","yellow","red")])
             status.append(["GOAL API — mevcut resmî müsabaka verileri; eksik turnuvalar olabilir; kaynak: GitHub data/coverage.csv"])
         merged[name]=(ws,out,status)
     # All rows and schemas validated, now begin edits.
