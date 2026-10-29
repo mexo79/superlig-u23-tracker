@@ -50,8 +50,18 @@ def main():
         for r in rows[1:]:
             key=r[1]+"|"+r[2]
             v=totals[key]
-            out.append([numeric(v.get(k)) for k in ("minutes","matches","starts")]+[(numeric(v.get("rating_x100"))/100 if numeric(v.get("rating_x100")) != "" else "")]+[numeric(v.get(k)) for k in ("goals","assists","yellow","red")])
-            status.append(["GOAL API — mevcut resmî müsabaka verileri; eksik turnuvalar olabilir; kaynak: GitHub data/coverage.csv"])
+            no_record = v.get("matches", "") in ("N/A", "", "0", "0.0")
+            if no_record:
+                # User-facing 0 means no match recorded in available API data.
+                # Not proof that the player never played: coverage is incomplete.
+                out.append([0, 0, 0, "", 0, 0, 0, 0])
+                status.append(["API'de resmî maç kaydı bulunamadı; 0 gösteriliyor (eksik veri olabilir)"])
+            else:
+                rating_x100 = numeric(v.get("rating_x100"))
+                out.append([numeric(v.get(k)) for k in ("minutes","matches","starts")]+
+                           [(rating_x100/100 if rating_x100 != "" else "")]+
+                           [numeric(v.get(k)) for k in ("goals","assists","yellow","red")])
+                status.append(["GOAL API — mevcut resmî müsabaka verileri; eksik turnuvalar olabilir; kaynak: GitHub data/coverage.csv"])
         merged[name]=(ws,out,status)
     # All rows and schemas validated, now begin edits.
     for name,(ws,out,st) in merged.items():
