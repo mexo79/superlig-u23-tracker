@@ -1,7 +1,7 @@
 """Probe supported official competitions (no key printed)."""
 import os, json
 from goal_api import GoalAPI
-searches=("Champions","Europa","Conference","Turkish Cup","Cup","Nations","World Cup","Euro","Qualification","Qualifiers","Turkey")
+searches=("Super Cup","Youth League","U21 Championship","U19 Championship","Under-21","U20 World Cup","Champions","Europa","Conference","Nations")
 with GoalAPI(os.environ["GOAL_API_KEY"],timeout=22,max_retries=0) as g:
   for text in searches:
     try:
