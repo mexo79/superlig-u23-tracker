@@ -91,7 +91,7 @@ def all_matches():
         if isinstance(pages, int) and page >= pages: break
         total = first_available(meta, "total", "count")
         if isinstance(total, int) and len(matches) >= total: break
-        if len(records) < 100 and not (isinstance(total,int) and len(matches) < total):
+        if len(records) < 100 and not (isinstance(total,int) and len(matches) < total) and pages is None:
             break
         time.sleep(.25)
     if not matches:
@@ -170,8 +170,8 @@ def read_ledger(sheet):
     values=sheet.worksheet(PLAYER_TAB).get_all_values()
     rows={}
     for r in values[1:]:
-        if len(r)>=12 and r[0].strip() and r[1].strip():
-            rows[(r[0].strip(),r[1].strip())] = r[:12]
+        if len(r)>=4 and r[0].strip() and r[1].strip():
+            rows[(r[0].strip(),r[1].strip())] = (r+[""]*12)[:12]
     return rows
 
 def summarize(rows):
