@@ -42,6 +42,11 @@ jobs:
                       results.append(True)
               except urllib.error.HTTPError as e:
                   raw=e.read(3000).decode("utf-8","replace")
+                  print("RESPONSE_META", "content-type="+str(e.headers.get("Content-Type","?")), "server="+str(e.headers.get("Server","?")), "html="+str(raw.lstrip().startswith("<")))
+                  if "<title>" in raw.lower():
+                      i=raw.lower().find("<title>")+7
+                      title=raw[i:i+120].split("<")[0].replace(key,"[REDACTED]")
+                      print("HTML_TITLE",title)
                   try:
                       body=json.loads(raw)
                   except (ValueError,TypeError):
