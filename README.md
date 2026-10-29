@@ -54,6 +54,12 @@ Seçenek B: `GOOGLE_SERVICE_ACCOUNT_JSON` adlı GitHub Secret ve bu servis hesab
 
 **Henüz bu bağlantılardan birinin uçtan uca otomatik çalıştığı onaylanmış değil.** İlk içerik Google Drive bağlantısı üzerinden doğrudan yazılmıştır.
 
+### Reytinglerin Google Sheets tarafından tarihe dönüştürülmesi (29 Ekim 2026 düzeltmesi)
+
+Türkçe Google Sheets `IMPORTDATA` bazen `7.12` gibi noktalı ondalık sayıları tarih sanıp **46363** gibi tarih seri numaralarına çevirebilir. Bu yüzden `data/official_totals_safe.csv` içindeki `rating_x100` değerleri **712** olarak yayımlanır; Google Sheets'in üç ana sekmesindeki reyting formülü otomatik olarak **100'e bölüp 7,12** gösterir. Eksik veri `N/A` olarak kalır, yanlışlıkla sıfır sayılmaz.
+
+Her gece 23:50 GitHub Actions, `official_totals_safe.csv` dosyasını da günceller. Canlı Sheets içe aktarımı bu dosyayı kullanır. Yenileme süresi Sheets'in kendi dış veri önbelleğine bağlıdır.
+
 ## Kaynak ve sınırlar
 
 GOAL API resmî Python SDK'sı: https://github.com/goal-api/goal-api-python  
