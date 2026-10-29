@@ -51,6 +51,12 @@ jobs:
                       body=json.loads(raw)
                   except (ValueError,TypeError):
                       body={}
+                  print("ERROR_FIELDS",sorted(body.keys()) if isinstance(body,dict) else type(body).__name__)
+                  if isinstance(body,dict):
+                      for field in ("error","message","code","detail","status"):
+                          val=body.get(field)
+                          if val is not None:
+                              print("ERROR_"+field.upper(),str(val).replace(key,"[REDACTED]")[:180])
                   detail=body.get("error") if isinstance(body,dict) else None
                   if isinstance(detail,dict): detail=str(detail.get("code") or detail.get("category") or "")
                   if not detail and isinstance(body,dict): detail=body.get("code") or body.get("message") or ""
