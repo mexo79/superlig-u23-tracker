@@ -21,6 +21,7 @@ import goal_all_official_export
 BASE=Path(__file__).resolve().parents[1]
 PLAYERS=BASE/"data"/"players.json"
 TOTALS=BASE/"data"/"official_totals.csv"
+SAFE_TOTALS=BASE/"data"/"official_totals_safe.csv"
 DETAIL=BASE/"data"/"competitions.csv"
 COVERAGE=BASE/"data"/"coverage.csv"
 START="2026-07-01"
@@ -143,6 +144,7 @@ def main():
     if extras_found<15:
         raise RuntimeError("Suspicious external-competition player coverage; previous CSV retained")
     csvwrite(TOTALS,["key","api_id","minutes","matches","starts","rating_x100","goals","assists","yellow","red","updated_at"],total_rows)
+    csvwrite(SAFE_TOTALS,["key","api_id","minutes","matches","starts","rating_x100","goals","assists","yellow","red","updated_at"],total_rows)
     csvwrite(DETAIL,["key","api_id","player","club","competition","club_or_national_team","category",
                      "minutes","matches","starts","rating","goals","assists","yellow","red","coverage"],comp_rows)
     stats=[("Süper Lig",meta["games"],meta["loaded"],"Kulüp")]
