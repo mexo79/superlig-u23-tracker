@@ -1,43 +1,59 @@
-name: Daily U23 player performance sync
+name: Daily U23 all official competitions statistics
 on:
   workflow_dispatch:
   schedule:
     - cron: '50 23 * * *'
       timezone: 'Europe/Istanbul'
 permissions:
-  contents: read
+  contents: write
 concurrency:
-  group: superlig-u23-sheet-sync
+  group: superlig-u23-all-official-csv
   cancel-in-progress: false
 jobs:
-  sync:
+  publish:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Install GOAL API and Google Sheets libraries
+      - name: Install official GOAL API SDK and Google Sheets (optional)
         run: pip install -r requirements.txt
-      - name: Test parser syntax
-        run: python -m py_compile src/goal_season_export.py src/goal_sheet_sync.py
-      - name: Check secrets
-        id: prerequisite
+      - name: Check Python syntax
+        run: python -m py_compile src/goal_season_export.py src/goal_all_official_export.py src/goal_publish_csv.py src/goal_apply_csv_to_sheet.py
+      - name: Check GOAL API key
         env:
           GOAL_API_KEY: ${{ secrets.GOAL_API_KEY }}
-          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
         run: |
-          if [ -z "$GOAL_API_KEY" ] || [ -z "$GOOGLE_SERVICE_ACCOUNT_JSON" ]; then
-            echo "::warning::GOAL_API_KEY or GOOGLE_SERVICE_ACCOUNT_JSON missing. Google Sheet NOT updated."
-            echo "configured=false" >> "$GITHUB_OUTPUT"
-          else
-            echo "configured=true" >> "$GITHUB_OUTPUT"
+          if [ -z "$GOAL_API_KEY" ]; then
+            echo "::error::GOAL_API_KEY absent; no files updated."
+            exit 1
           fi
-      - name: Pull current season and refresh Google Sheet
-        if: steps.prerequisite.outputs.configured == 'true'
+      - name: Recalculate all official tournament performance
         env:
           GOAL_API_KEY: ${{ secrets.GOAL_API_KEY }}
+        run: python src/goal_publish_csv.py
+      - name: Publish current player stats to GitHub
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/official_totals.csv data/competitions.csv data/coverage.csv
+          if git diff --cached --quiet; then
+            echo "No changes to stats"
+          else
+            git commit -m "Refresh official player performance data [skip ci]"
+            git push
+          fi
+      - name: Optional direct Google Sheets update
+        env:
           GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
           GOOGLE_SHEET_ID: 1eyhOf-1Vv3LmYCRmodFMBsxAflYIRH7l3iUThRHdVuM
-        run: python src/goal_sheet_sync.py
+        run: |
+          if [ -n "$GOOGLE_SERVICE_ACCOUNT_JSON" ]; then
+            python src/goal_apply_csv_to_sheet.py
+          else
+            echo "::notice::Direct Sheets sync unavailable; public CSV refreshed. Google Sheets needs one-time IMPORTDATA authorization."
+          fi
