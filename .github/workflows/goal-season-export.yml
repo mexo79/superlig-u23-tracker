@@ -1,0 +1,22 @@
+name: Export latest Super Lig U23 season stats once
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/goal-season-export.yml','src/goal_season_export.py']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install goal-api
+      - name: Export current-season match player statistics
+        env:
+          GOAL_API_KEY: ${{ secrets.GOAL_API_KEY }}
+        run: python src/goal_season_export.py
