@@ -5,57 +5,57 @@ on:
     paths:
       - '.github/workflows/goal-api-test.yml'
   workflow_dispatch:
-
 permissions:
   contents: read
-
 jobs:
   inspect:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - name: Check secret and safely inspect API structure
+      - name: Safely check key and provider access
         env:
           GOAL_API_KEY: ${{ secrets.GOAL_API_KEY }}
         run: |
           python - <<'PY'
           import json, os, urllib.request, urllib.error
-          key = os.getenv("GOAL_API_KEY", "")
+          key=os.getenv("GOAL_API_KEY","")
           if not key:
-              raise SystemExit("GOAL_API_KEY: MISSING - add it in Settings > Secrets and variables > Actions")
-          print("GOAL_API_KEY: PRESENT (contents hidden)")
-          base = "https://api.goal-api.com/v1"
-          def get(path):
-              req = urllib.request.Request(base + path, headers={"Authorization":"Bearer "+key,"Accept":"application/json"})
+              raise SystemExit("SECRET_STATUS=MISSING. Create GOAL_API_KEY in Actions repository secrets.")
+          print("SECRET_STATUS=PRESENT")
+          base="https://api.goal-api.com/v1"
+          results=[]
+          for path in ("/leagues?limit=1", "/leagues/cmr77dw0q00eprx06rqew3m48", "/players/search?q=Dorgeles%20Nene"):
+              req=urllib.request.Request(base+path,headers={"Authorization":"Bearer "+key,"Accept":"application/json"})
               try:
-                  with urllib.request.urlopen(req, timeout=25) as r:
-                      return json.load(r)
+                  with urllib.request.urlopen(req,timeout=18) as res:
+                      data=json.load(res)
+                      print("ENDPOINT",path,"HTTP",res.status)
+                      if isinstance(data,dict):
+                          print("RESPONSE_KEYS",sorted(data.keys())[:18])
+                          payload=data.get("data",None)
+                          if isinstance(payload,dict):
+                              print("DATA_KEYS",sorted(payload.keys())[:28])
+                          elif isinstance(payload,list):
+                              print("DATA_COUNT",len(payload))
+                              if payload and isinstance(payload[0],dict):
+                                  print("FIRST_ROW_KEYS",sorted(payload[0].keys())[:30])
+                      results.append(True)
               except urllib.error.HTTPError as e:
-                  raise SystemExit(f"GOAL API HTTP {e.code} on {path}. Check API key/subscription.") from e
-          league = get("/leagues/cmr77dw0q00eprx06rqew3m48")
-          print("League envelope keys:",sorted(league.keys()) if isinstance(league, dict) else type(league).__name__)
-          data = league.get("data", {}) if isinstance(league, dict) else {}
-          print("League fields:", sorted(data.keys())[:30] if isinstance(data,dict) else type(data).__name__)
-          search = get("/players/search?q=Dorgeles%20Nene")
-          print("Search envelope keys:", sorted(search.keys()) if isinstance(search,dict) else type(search).__name__)
-          items = search.get("data",[]) if isinstance(search,dict) else []
-          if isinstance(items,dict):
-              print("Search data fields:",sorted(items.keys())[:25])
-              items = items.get("players",items.get("results",[]))
-          print("Search player count:",len(items) if isinstance(items,list) else "non-list")
-          if isinstance(items,list) and items:
-              player = items[0]
-              print("Search first player fields:", sorted(player.keys())[:35])
-              player_id = player.get("id") or player.get("apiId") or player.get("playerId")
-              if player_id:
-                  stats = get("/players/"+str(player_id)+"/statistics?season=2026-2027")
-                  print("Stats envelope keys:", sorted(stats.keys()) if isinstance(stats,dict) else type(stats).__name__)
-                  stat_data = stats.get("data",{}) if isinstance(stats,dict) else {}
-                  print("Stats data type:",type(stat_data).__name__)
-                  if isinstance(stat_data,dict):
-                      print("Stats field names:",sorted(stat_data.keys())[:65])
-                      for field,value in stat_data.items():
-                          if isinstance(value,dict):
-                              print("  "+field+" subfields:",sorted(value.keys())[:45])
-          print("GOAL_API_TEST: COMPLETED. No Google Sheets rows were changed.")
+                  raw=e.read(3000).decode("utf-8","replace")
+                  try:
+                      body=json.loads(raw)
+                  except (ValueError,TypeError):
+                      body={}
+                  detail=body.get("error") if isinstance(body,dict) else None
+                  if isinstance(detail,dict): detail=str(detail.get("code") or detail.get("category") or "")
+                  if not detail and isinstance(body,dict): detail=body.get("code") or body.get("message") or ""
+                  detail=str(detail).replace(key,"[REDACTED]")[:150]
+                  print("ENDPOINT",path,"HTTP",e.code,"ERROR_TYPE",detail)
+                  results.append(False)
+              except Exception as e:
+                  print("ENDPOINT",path,"ERROR_TYPE",type(e).__name__)
+                  results.append(False)
+          if not all(results):
+              raise SystemExit("GOAL API access incomplete; no spreadsheet update attempted.")
+          print("API connection OK; schema inspection done. No spreadsheet updates attempted.")
           PY
