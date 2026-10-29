@@ -23,6 +23,13 @@ class OfficialTotalsTests(unittest.TestCase):
         self.assertEqual(values[0],150)
         self.assertEqual(values[4],"")
 
+
+    def test_csv_scaled_rating_for_sheet_date_parser(self):
+        from goal_apply_csv_to_sheet import numeric
+        # 7.12 is exported as integer 712 to avoid IMPORTDATA treating 7.12 as a date.
+        self.assertEqual(numeric("712") / 100, 7.12)
+        self.assertEqual(numeric("N/A"), "")
+
     def test_matching_requires_exact_club_when_id_absent(self):
         byid={"123":{"api_id":"123"}}
         byname={("dorgelesnene",club("Fenerbahçe")):[{"api_id":"123"}]}
