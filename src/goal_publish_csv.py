@@ -128,7 +128,7 @@ def main():
         extras_found+=int(bool(extras))
         metrics=merge(row,lgrow,extras)
         key=row["name"]+"|"+row["club"]
-        total_rows.append([key,pid,*metrics,stamp])
+        total_rows.append([key,pid,*[("N/A" if v == "" else v) for v in metrics],stamp])
         if lgrow:
             line=[key,pid,row["name"],row["club"],"Süper Lig",row["club"],"Kulüp",*[
                 lgrow.get(k) if k not in lgrow.get("null_fields",[]) else "" for k in KEYS],
