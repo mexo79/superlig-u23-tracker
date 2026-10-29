@@ -11,7 +11,7 @@ URL = f"https://www.sofascore.com/api/v1/unique-tournament/{LEAGUE_ID}/season/{S
 FIELDS = "appearances,minutesPlayed,started,rating,goals,assists,yellowCards,redCards"
 SHEET_NAMES = ("Tüm U23", "U23 Yabancı", "U23 Türk")
 STAT_HEADERS = ("Dakika", "Maç", "İlk 11", "Ortalama reyting", "Gol", "Asist", "Sarı kart", "Kırmızı kart")
-SOURCE_HEADERS = ["SofaScore ID","Oyuncu","Kulüp","Mevki","TFF statü","Doğum tarihi",*STAT_HEADERS,"2026-27 kontenjanı","2027-28 kontenjanı","SofaScore güncelleme","TFF kontrol tarihi","SofaScore profil","TFF kaynak","Veri durumu"]
+SOURCE_HEADERS = ["SofaScore ID","Oyuncu","Kulüp","Mevki","Doğum tarihi",*STAT_HEADERS,"2026-27 kontenjanı","2027-28 kontenjanı","SofaScore güncelleme","TFF kontrol tarihi","SofaScore profil","TFF kaynak","Veri durumu","Yerli / Yabancı"]
 
 def fetch_json(url):
     req = urllib.request.Request(url, headers={
@@ -75,13 +75,13 @@ def build_output(source, players):
                 stat_value(stats.get("goals")),stat_value(stats.get("assists")),
                 stat_value(stats.get("yellowCards")),stat_value(stats.get("redCards"))
             ]
-            row[6:14] = values
-            row[16] = now
-            row[18] = "https://www.sofascore.com/player/" + str(pid)
-            row[20] = "SofaScore doğrulandı"
+            row[5:13] = values
+            row[15] = now
+            row[17] = "https://www.sofascore.com/player/" + str(pid)
+            row[19] = "SofaScore doğrulandı"
         else:
             # Retain previous performance values; do not fabricate zeroes.
-            row[20] = "Eşleşme yok / eski veri korundu" if pid else "SofaScore oyuncu ID eksik"
+            row[19] = "Eşleşme yok / eski veri korundu" if pid else "SofaScore oyuncu ID eksik"
         output.append(row)
     return output
 
@@ -105,12 +105,12 @@ def main():
         row[0] = pid
         row[1] = x[1] if len(x)>1 else row[1]
         row[2] = x[2] if len(x)>2 else row[2]
-        row[5] = x[3] if len(x)>3 else row[5]
-        row[4] = x[4] if len(x)>4 else row[4]
-        row[14] = x[5] if len(x)>5 else row[14]
-        row[15] = x[6] if len(x)>6 else row[15]
-        row[19] = x[7] if len(x)>7 else row[19]
-        row[17] = x[8] if len(x)>8 else row[17]
+        row[4] = x[3] if len(x)>3 else row[4]
+        row[20] = ("Yabancı" if "yabancı" in x[4].lower() else "Yerli") if len(x)>4 else row[20]
+        row[13] = x[5] if len(x)>5 else row[13]
+        row[14] = x[6] if len(x)>6 else row[14]
+        row[18] = x[7] if len(x)>7 else row[18]
+        row[16] = x[8] if len(x)>8 else row[16]
         rows.append(row)
     players = get_player_stats() # Fail closed before writing.
     output = build_output(rows,players)
@@ -118,15 +118,15 @@ def main():
         raise RuntimeError("No usable roster entries; refusing to overwrite")
     targets = {
         "Tüm U23":output,
-        "U23 Yabancı":[r for r in output if "yabancı" in str(r[4]).lower()],
-        "U23 Türk":[r for r in output if "türk" in str(r[4]).lower() or "yerli" in str(r[4]).lower()]
+        "U23 Yabancı":[r for r in output if str(r[20]).strip() == "Yabancı"],
+        "U23 Türk":[r for r in output if str(r[20]).strip() == "Yerli"]
     }
     for tab, records in targets.items():
         ws = book.worksheet(tab)
         # Clear only the used rectangle, preserve formatting/filter controls.
         ws.batch_clear(["A2:U1000"])
         if records:
-            records.sort(key=lambda r: (float(r[6]) if isinstance(r[6], (int,float)) else -1),reverse=True)
+            records.sort(key=lambda r: (float(r[5]) if isinstance(r[5], (int,float)) else -1),reverse=True)
             ws.update(range_name=f"A2:U{len(records)+1}",values=records,value_input_option="USER_ENTERED")
     print(f"Updated {len(output)} players from {len(players)} SofaScore records.")
 
