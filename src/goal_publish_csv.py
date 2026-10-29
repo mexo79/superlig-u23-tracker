@@ -128,7 +128,8 @@ def main():
         extras_found+=int(bool(extras))
         metrics=merge(row,lgrow,extras)
         key=row["name"]+"|"+row["club"]
-        total_rows.append([key,pid,*[("N/A" if v == "" else v) for v in metrics],stamp])
+        safe_metrics=[("N/A" if v == "" else (int(round(v * 100)) if i == 3 else v)) for i,v in enumerate(metrics)]
+        total_rows.append([key,pid,*safe_metrics,stamp])
         if lgrow:
             line=[key,pid,row["name"],row["club"],"Süper Lig",row["club"],"Kulüp",*[
                 lgrow.get(k) if k not in lgrow.get("null_fields",[]) else "" for k in KEYS],
@@ -141,7 +142,7 @@ def main():
                              "GOAL API — veri bulunan maçlar"])
     if extras_found<15:
         raise RuntimeError("Suspicious external-competition player coverage; previous CSV retained")
-    csvwrite(TOTALS,["key","api_id","minutes","matches","starts","rating","goals","assists","yellow","red","updated_at"],total_rows)
+    csvwrite(TOTALS,["key","api_id","minutes","matches","starts","rating_x100","goals","assists","yellow","red","updated_at"],total_rows)
     csvwrite(DETAIL,["key","api_id","player","club","competition","club_or_national_team","category",
                      "minutes","matches","starts","rating","goals","assists","yellow","red","coverage"],comp_rows)
     stats=[("Süper Lig",meta["games"],meta["loaded"],"Kulüp")]
