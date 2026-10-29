@@ -19,6 +19,21 @@ LEAGUES=[
  ("UEFA U21 Elemeleri","cmr77dvi9004orx06u3p565x4","national"),
  ("UEFA U19 Elemeleri","cmr77dw4800fjrx06pe28dd0b","national"),
  ("UEFA U17 Elemeleri","cmr77dvi9004mrx065nk08sup","national"),
+ ("UEFA Dünya Kupası Elemeleri","cmr77dw3900f7rx06p5hrzt3h","national"),
+ ("2027 Avrupa Şampiyonası Elemeleri","cmr77dw4800ffrx06n12x8vzf","national"),
+ ("Afrika Dünya Kupası Elemeleri","cmr77dw4s00fprx06b0lzlakq","national"),
+ ("Asya Dünya Kupası Elemeleri","cmr77dw4s00forx06xmv9cyt2","national"),
+ ("Güney Amerika Dünya Kupası Elemeleri","cmr77dvmv006erx06bv7j5r71","national"),
+ ("Kuzey Amerika Dünya Kupası Elemeleri","cmr77dw4s00fqrx0685wnnxun","national"),
+ ("Asya Kupası Elemeleri","cmr77dvhg0027rx06g53djm8w","national"),
+ ("2026 FIFA U17 Dünya Kupası","cmr77dw4s00frrx06072phd0g","national"),
+ ("FIFA U20 Dünya Kupası","cmr77dw4s00fsrx06b9i3064z","national"),
+ ("UEFA U19 Şampiyonası","cmr77dw3900farx06cjgu8fbb","national"),
+ ("Afrika U20 Uluslar Kupası","cmr77dvhg001trx06zhcl84in","national"),
+ ("Afrika U23 Uluslar Kupası","cmr77dvhg002erx06yvrv81x9","national"),
+ ("Türkiye Süper Kupa","cmr77dw0q00evrx06wu2978jk","club"),
+ ("UEFA Süper Kupa","cmr77dw4800fhrx065oy5co7g","club"),
+ ("UEFA Gençlik Ligi","cmr77dw4800fkrx061y0e0vxw","youthclub"),
 ]
 CLUBS={
  "fenerbahce","istanbulbasaksehir","basaksehir","alanyaspor",
@@ -55,8 +70,14 @@ def main():
   for name,lid,category in LEAGUES:
    games=paged_results(c,lid)
    games=[g for g in games if g.get("matchStatus") in ("FINISHED","AFTER_ET","AFTER_PEN") and not any(x in norm(g.get("leagueName")) for x in ["friendly","preseason","exhibition","testmatch"])]
-   if category=="club":
-    games=[g for g in games if norm(g.get("homeTeamName")) in CLUBS or norm(g.get("awayTeamName")) in CLUBS]
+   if category in ("club","youthclub"):
+    def is_turkish_club(team_name):
+     slug=norm(team_name)
+     if category=="youthclub":
+      for end in ("u19","u21","u17","youth"):
+       if slug.endswith(end):slug=slug[:-len(end)]
+     return slug in CLUBS
+    games=[g for g in games if is_turkish_club(g.get("homeTeamName")) or is_turkish_club(g.get("awayTeamName"))]
    attempted=0;good=0;incomplete=0
    for game in games:
     attempted+=1
@@ -67,7 +88,7 @@ def main():
      usable=0
      for side in ("home","away"):
       club=game.get("homeTeamName") if side=="home" else game.get("awayTeamName")
-      if category=="club" and norm(club) not in CLUBS:continue
+      if category in ("club","youthclub") and not is_turkish_club(club):continue
       for p in both.get(side,[]) or []:
        minutes=f(p.get("minutesPlayed"))
        if minutes is None or minutes<=0:continue
