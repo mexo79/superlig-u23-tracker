@@ -1,4 +1,4 @@
-name: Super Lig U23 - daily integration status
+name: Daily U23 player performance sync
 on:
   workflow_dispatch:
   schedule:
@@ -6,33 +6,38 @@ on:
       timezone: 'Europe/Istanbul'
 permissions:
   contents: read
+concurrency:
+  group: superlig-u23-sheet-sync
+  cancel-in-progress: false
 jobs:
-  verify-provider:
+  sync:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 20
     steps:
-      - name: Check GOAL API setup (no live write until provider access is verified)
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install GOAL API and Google Sheets libraries
+        run: pip install -r requirements.txt
+      - name: Test parser syntax
+        run: python -m py_compile src/goal_season_export.py src/goal_sheet_sync.py
+      - name: Check secrets
+        id: prerequisite
         env:
           GOAL_API_KEY: ${{ secrets.GOAL_API_KEY }}
           GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
         run: |
-          python - <<'PY'
-          import os, json, urllib.request, urllib.error
-          if not os.getenv("GOAL_API_KEY"):
-              raise SystemExit("GOAL_API_KEY is missing. No statistics were updated.")
-          print("GOAL_API_KEY is configured.")
-          if not os.getenv("GOOGLE_SERVICE_ACCOUNT_JSON"):
-              print("::warning::Google Sheets write credentials not configured; no statistics were updated.")
-          url="https://api.goal-api.com/v1/leagues/cmr77dw0q00eprx06rqew3m48"
-          req=urllib.request.Request(url,headers={"Authorization":"Bearer "+os.environ["GOAL_API_KEY"],"Accept":"application/json"})
-          try:
-              with urllib.request.urlopen(req,timeout=25) as res:
-                  response=json.load(res)
-              if not isinstance(response,dict) or not response.get("success"):
-                  raise SystemExit("GOAL API returned unexpected payload. No statistics were updated.")
-              print("Provider reachable. Player schema and Google Sheets writes still require validation.")
-          except urllib.error.HTTPError as e:
-              print(f"::warning::GOAL API HTTP {e.code}; provider blocked access or denied request. No stats updated.")
-          except Exception as e:
-              print(f"::warning::GOAL API connectivity failed ({type(e).__name__}); no stats updated.")
-          PY
+          if [ -z "$GOAL_API_KEY" ] || [ -z "$GOOGLE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::warning::GOAL_API_KEY or GOOGLE_SERVICE_ACCOUNT_JSON missing. Google Sheet NOT updated."
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Pull current season and refresh Google Sheet
+        if: steps.prerequisite.outputs.configured == 'true'
+        env:
+          GOAL_API_KEY: ${{ secrets.GOAL_API_KEY }}
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          GOOGLE_SHEET_ID: 1eyhOf-1Vv3LmYCRmodFMBsxAflYIRH7l3iUThRHdVuM
+        run: python src/goal_sheet_sync.py
