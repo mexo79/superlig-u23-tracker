@@ -12,6 +12,7 @@ import re
 import time
 import unicodedata
 import urllib.parse
+import urllib.error
 import urllib.request
 
 import gspread
@@ -222,9 +223,21 @@ def run():
     ledger_ws=sheet.worksheet(PLAYER_TAB)
     matches_ws=sheet.worksheet(MATCH_TAB)
     ledger=read_ledger(sheet)
-    fetched={r[0] for r in matches_ws.get_all_values()[1:] if r and r[0]}
+    saved_matches={r[0]:r for r in matches_ws.get_all_values()[1:] if r and r[0]}
     fixtures=all_matches()
-    candidates=[f for f in fixtures if completed(f) and str(f.get("id") or "") not in fetched]
+    cutoff=dt.datetime.now(dt.timezone.utc)-dt.timedelta(days=3)
+    def needs_refresh(f):
+        fid=str(f.get("id") or "")
+        if not completed(f) or not fid:
+            return False
+        if fid not in saved_matches:
+            return True
+        try:
+            kickoff=dt.datetime.fromisoformat(str(f.get("kickoff","")).replace("Z","+00:00"))
+            return kickoff >= cutoff
+        except (ValueError,TypeError):
+            return False
+    candidates=[f for f in fixtures if needs_refresh(f)]
     fixture_rows=[]
     for f in candidates:
         fixture_id=str(f.get("id") or "")
@@ -232,10 +245,15 @@ def run():
         try:
             detail=api_get("/matches/"+urllib.parse.quote(fixture_id))
             matchrows=parse_fixture(detail)
+            ledger={k:v for k,v in ledger.items() if k[0]!=fixture_id}
             for r in matchrows: ledger[(r[0],r[1])] = r
             fixture_rows.append([fixture_id,str(f.get("kickoff") or ""),str(f.get("status") or "finished"),
                                  dt.datetime.now(dt.timezone.utc).isoformat(),len(matchrows)])
             print(f"Loaded fixture {fixture_id}: {len(matchrows)} players")
+        except urllib.error.HTTPError as err:
+            if err.code in (401,403,429):
+                raise RuntimeError(f"Provider access or quota error HTTP {err.code}; no sheet changes")
+            print(f"WARNING {fixture_id}: HTTP {err.code}")
         except Exception as err:
             print(f"WARNING {fixture_id}: {err}")
         time.sleep(.35)
@@ -266,7 +284,10 @@ def run():
     all_output.sort(key=lambda r: float(r[5]) if isinstance(r[5],(int,float)) else -1,reverse=True)
     # Persist match ledger first: next run can resume safely after partial failure.
     if fixture_rows:
-        matches_ws.append_rows(fixture_rows,value_input_option="USER_ENTERED")
+        for r in fixture_rows: saved_matches[r[0]]=r
+        match_table=[["Maç ID","Başlama","Durum","Güncelleme","Oyuncu sayısı"],*sorted(saved_matches.values(),key=lambda r:r[0])]
+        matches_ws.clear()
+        matches_ws.update(range_name=f"A1:E{len(match_table)}",values=match_table,value_input_option="USER_ENTERED")
         all_ledger=[ledger[k] for k in sorted(ledger)]
         ledger_ws.clear()
         ledger_ws.update(range_name=f"A1:L{len(all_ledger)+1}",
@@ -282,7 +303,7 @@ def run():
         if subset:
             ws.update(range_name=f"A2:U{len(subset)+1}",values=subset,value_input_option="USER_ENTERED")
     sheet.worksheet("İşlem Günlüğü").append_row([stamp,SOURCE,"Performans kontrolü","Başarılı",
-                                f"Yeni maç: {len(fixture_rows)}, eşleşen: {matched}/{len(all_output)}"],value_input_option="USER_ENTERED")
+                                f"Yeni/güncellenen maç: {len(fixture_rows)}, eşleşen: {matched}/{len(all_output)}"],value_input_option="USER_ENTERED")
     print(f"OK: {len(fixture_rows)} new matches, {matched}/{len(all_output)} players matched")
 
 if __name__ == "__main__":
