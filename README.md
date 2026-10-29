@@ -1,33 +1,33 @@
-# 2026-27 Süper Lig U23 veritabanı
+# Süper Lig U23 2026-27 — Veri Takip
 
-**Google Sheets:** https://docs.google.com/spreadsheets/d/1eyhOf-1Vv3LmYCRmodFMBsxAflYIRH7l3iUThRHdVuM/edit
+[Google Sheets](https://docs.google.com/spreadsheets/d/1eyhOf-1Vv3LmYCRmodFMBsxAflYIRH7l3iUThRHdVuM/edit)
 
-**Durum (29 Ekim 2026):** Üç aday oyuncu listesi hazır, API adaptörü GitHub'a eklendi. **API anahtarı ve Google yetkilendirmesi henüz yapılandırılmadığından oyuncu performansları canlı doldurulmadı.** Kaynağı doğrulanmamış istatistikler sıfır yapılmaz.
+## En son durum (29 Ekim 2026)
 
-## Sistem nasıl çalışır?
+- GitHub bağlantısı doğrulandı; GOAL API secret `GOAL_API_KEY` **mevcut**. Gizli anahtar değeri okunmadı.
+- Güvenli test: [GitHub Actions GOAL API bağlantı testi](https://github.com/mexo79/superlig-u23-tracker/actions/workflows/goal-api-test.yml).
+- Testte `/leagues`, Süper Lig `/leagues/:id` ve `/players/search` isteklerinin tümü HTTP **403** döndü.
+- Yanıt JSON açıklaması: **"The site owner has blocked access based on your browser's signature."** Bu mesaj GOAL API'nin Cloudflare güvenlik katmanından geldi. Bu, anahtarın geçerliliğini kanıtlamaz ya da reddetmez; güvenlik katmanı veri isteklerini doğrulanmadan engellemektedir.
+- API sağlayıcısına GitHub Actions üzerinden sunucu-sunucu erişimin desteklenip desteklenmediği sorulmalı. Güvenlik engeli atlatılmamalı.
+- Google Sheet'teki 224 oyuncu adayı ve 3 liste mevcut; performans sütunları **henüz canlı veriyle dolmadı**, TFF kayıtlarının hepsi doğrulanmadı.
+- Google Sheets'e otomatik yazma için `GOOGLE_SERVICE_ACCOUNT_JSON` GitHub Actions secret ve service-account Editor paylaşımı henüz doğrulanmadı.
 
-- **Performans:** [RapidAPI Süper Lig sağlayıcısı](https://rapidapi.com/yuvr99-WHTEITBQbOc/api/super-lig/pricing). 2026-27 fikstürünü sorgular, yalnızca bitmiş ve arşivde henüz bulunmayan maçların oyuncu detaylarını indirir.
-- Maç başına oyuncu verilerini iki gizli Google Sheets sekmesinde saklar, dakika/maç/ilk 11/reyting/gol/asist/sarı/kırmızı toplamlarını hesaplar.
-- **TFF:** Türk/Yabancı ve 2026-27, 2027-28 kontenjan bilgileri yalnızca TFF kontenjan sekmesinden gelir; günlük işlem bunları değiştirmez.
-- **Üç görünüm:** Tüm U23, U23 Yabancı, U23 Türk. Her görünümde artan/azalan başlık filtreleri korunur.
-- **Saat:** Her gün 23:50 (Europe/Istanbul). Kaynağın maç istatistiklerini eksik göndermesi durumunda eski değerleri korur ve sorun günlüğe/Actions'a yansır.
+## Kaynaklar
+- [GOAL API documentation](https://goal-api.com/documentation), Bearer authentication
+- [GOAL API Süper Lig coverage](https://goal-api.com/coverage/turkey-super-lig-api)
+- [TFF](https://www.tff.org)
 
-## Kullanıcının bir kez yapacağı iki yetkilendirme
-
-1. [RapidAPI Süper Lig fiyatlandırması](https://rapidapi.com/yuvr99-WHTEITBQbOc/api/super-lig/pricing) üzerinden **Basic ($0, ayda 500 istek)** planını seç. API anahtarını GitHub deposunun **Settings → Secrets and variables → Actions → New repository secret** menüsünde `RAPIDAPI_KEY` adıyla ekle. Anahtarı bu sohbetin içine veya depoya dosya olarak yapıştırma.
-2. [Google Cloud Console](https://console.cloud.google.com/) üzerinden Sheets API etkin bir *service account* oluştur ve bu servisin e-posta adresini yukarıdaki Google Sheet'e **Editor** olarak ekle. Service account JSON anahtarını aynı GitHub Secrets alanına `GOOGLE_SERVICE_ACCOUNT_JSON` adıyla ekle. GitHub depoya asla JSON anahtarını commit etme.
-
-Sonra [GitHub Actions](https://github.com/mexo79/superlig-u23-tracker/actions/workflows/daily-stats.yml) sayfasında **Run workflow** ile manuel deneme yap. İlk tam çekim birden çok API isteği kullanır. İlk gece oyuncu sayısı, eşleşme oranı, stat alanlarının eksiksizliği ve kaynağın gerçek kadrolarla uyumu mutlaka doğrulanmalıdır.
-
-## Teknik kısıtlar
-
-- Buradaki API **TFF'nin resmî verisi değildir**. Henüz anahtarlı canlı test yapılmadığı için erişim, oyuncu şeması, reyting/ilk 11 alanı ve güvenilirlik **doğrulanmış değildir**.
-- Sağlayıcının ücretsiz kotası ayda 500 istektir; maç başına fark yöntemi kotayı azaltır ama yoğun takvim veya yeniden çekimler kotayı aşabilir.
-- Başlangıç oyuncu listesi **224 aday içerir**, bütün TFF lisans ve geçiş hakkı kayıtları bağımsız teyit gerektirir.
-- Şu an otomasyon yalnızca **Süper Lig** istatistiklerini toplar; Ziraat Türkiye Kupası, Avrupa kupaları ve milli maçlar ayrı turnuvalar olarak sonradan entegre edilmelidir.
-- 2027-28 kontenjan statüsü resmî olarak yayımlanana kadar öngörü olarak kalır.
+## Plan
+1. GOAL API sağlayıcısı erişim engelini kaldırırsa uç noktalar ve 2026-27 veri alanları örnek istekle doğrulanır.
+2. GOAL API oyuncu ID'leri 224 aday oyuncuyla eşleştirilir; belirsiz eşleşmeler manuel doğrulamaya gönderilir.
+3. Dakika, maç, ilk 11, gol, asist, kartlar ve **sadece kaynağın sağladığı** reyting Süper Lig alanlarına yazılır. Diğer müsabakalar ayrı tutulur.
+4. Google Sheets yetki bağlantısı kurulur, manuel test çalıştırılır, ardından her gece 23:50 (Europe/Istanbul) istatistik yenilemesi etkinleştirilir.
+5. TFF kontenjanı yılın Temmuz ayında kontrol edilir; günlük performans verileri bu alanları etkilemez.
 
 ## Kod
-`src/rapidapi_sync.py`: yeni API adaptörü ve günlük veri eşleştirme.
-`.github/workflows/daily-stats.yml`: Türkiye saatiyle 23:50 tetikleyici.
-`src/update_stats.py`: eski komut için yeni adaptöre yönlendirme.
+`.github/workflows/daily-stats.yml`: şu anda **yalnızca GOAL API erişim durumunu** kontrol eder. Veri tablosunu güncellemez.
+`.github/workflows/goal-api-test.yml`: GOAL API uç nokta testi.
+`src/rapidapi_sync.py`: önceki sağlayıcıya ait prototip; GOAL API ile uyumlu değildir ve aktif değildir.
+`src/update_stats.py`: eski sağlayıcının prototip giriş noktası; aktif değildir.
+
+**Not:** GOAL API ile Süper Lig oyuncu istatistiklerinin tam kapsamı ve GitHub Actions erişimi doğrulanana kadar otomatik veriler hazır olarak sunulmamalıdır.
