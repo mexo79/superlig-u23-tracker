@@ -1,0 +1,1798 @@
+{
+  "season": "2026/27",
+  "scope": "candidate Turkish Super Lig U23",
+  "players": [
+    {
+      "api_id": "3402637685",
+      "name": "Archie Brown",
+      "club": "Fenerbahçe",
+      "position": "Bek",
+      "birthdate": "2002",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "1369695651",
+      "name": "Emin Bayram",
+      "club": "Başakşehir",
+      "position": "Stoper",
+      "birthdate": "2003",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "1353265918",
+      "name": "Wagner Pina",
+      "club": "Trabzonspor",
+      "position": "Bek",
+      "birthdate": "2002",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "4142042117",
+      "name": "Ousmane Diabate",
+      "club": "Gençlerbirliği",
+      "position": "Orta Saha",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "192888559",
+      "name": "Serhat Öztaşdelen",
+      "club": "Kocaelispor",
+      "position": "Kaleci",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "1137974350",
+      "name": "Chibuike Nwaiwu",
+      "club": "Trabzonspor",
+      "position": "Stoper",
+      "birthdate": "2003",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "228497691",
+      "name": "Junior Olaitan",
+      "club": "Beşiktaş",
+      "position": "Orta Saha",
+      "birthdate": "2002",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "3442618326",
+      "name": "Josafat Mendes",
+      "club": "Samsunspor",
+      "position": "Bek",
+      "birthdate": "2002",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "4196759639",
+      "name": "Taha Altıkardeş",
+      "club": "Göztepe",
+      "position": "Stoper",
+      "birthdate": "2003",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "2315541159",
+      "name": "Adem Arous",
+      "club": "Kasımpaşa",
+      "position": "Stoper",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "761477843",
+      "name": "Andrei Borza",
+      "club": "Çorum FK",
+      "position": "Bek",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "1933609769",
+      "name": "Ruan",
+      "club": "Alanyaspor",
+      "position": "Bek",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "545868200",
+      "name": "Elson Mendes",
+      "club": "Kasımpaşa",
+      "position": "Orta Saha",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "3025051550",
+      "name": "Gonçalo Sousa",
+      "club": "Kocaelispor",
+      "position": "Kanat",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "1878463679",
+      "name": "Franculino Djú",
+      "club": "Trabzonspor",
+      "position": "Forvet",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "3391379980",
+      "name": "Gabriele Guarino",
+      "club": "Samsunspor",
+      "position": "Stoper",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "1437593021",
+      "name": "Aleksey Batrakov",
+      "club": "Galatasaray",
+      "position": "Orta Saha",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "4095483625",
+      "name": "Mahamadou Susoho",
+      "club": "Kocaelispor",
+      "position": "Orta Saha",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "4179083274",
+      "name": "Zakaria Ariss",
+      "club": "Rizespor",
+      "position": "Bek",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "1478340734",
+      "name": "Baran Gezek",
+      "club": "Alanyaspor",
+      "position": "Orta Saha",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "2594401669",
+      "name": "Rajmund Tóth",
+      "club": "Konyaspor",
+      "position": "Orta Saha",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "3594082600",
+      "name": "Richard Akonnor",
+      "club": "Göztepe",
+      "position": "Bek",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "4031357219",
+      "name": "Ayberk Karapo",
+      "club": "Kasımpaşa",
+      "position": "Bek",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "2650472675",
+      "name": "İlhan Fakılı",
+      "club": "Beşiktaş",
+      "position": "Kanat",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "870452415",
+      "name": "David Costa",
+      "club": "Eyüpspor",
+      "position": "Orta Saha",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "2145128981",
+      "name": "Ahmed Abdullahi",
+      "club": "Eyüpspor",
+      "position": "Forvet",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "2114455528",
+      "name": "Saikuba Jarju",
+      "club": "Samsunspor",
+      "position": "Kanat",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "1998642152",
+      "name": "Emir Ortakaya",
+      "club": "Kocaelispor",
+      "position": "Stoper",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "4009096099",
+      "name": "Ege Yıldırım",
+      "club": "Göztepe",
+      "position": "Stoper",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "4023896448",
+      "name": "Tanguy Zoukrou",
+      "club": "Kocaelispor",
+      "position": "Stoper",
+      "birthdate": "2003",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "3353612553",
+      "name": "Jakub Kałuziński",
+      "club": "Başakşehir",
+      "position": "Orta Saha",
+      "birthdate": "2002",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "2705136785",
+      "name": "Abbosbek Fayzullaev",
+      "club": "Başakşehir",
+      "position": "Kanat",
+      "birthdate": "2003",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "3461968516",
+      "name": "Kassoum Ouattara",
+      "club": "Beşiktaş",
+      "position": "Stoper/Bek",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "30412153",
+      "name": "Yusuf Barası",
+      "club": "Eyüpspor",
+      "position": "Forvet",
+      "birthdate": "2003",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "4101782367",
+      "name": "Ermin Mahmić",
+      "club": "Çorum FK",
+      "position": "Orta Saha",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "3207498618",
+      "name": "Arda Usluoğlu",
+      "club": "Alanyaspor",
+      "position": "Kanat",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "3748556030",
+      "name": "Antoine Sekongo",
+      "club": "Samsunspor",
+      "position": "Orta Saha",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "2427763407",
+      "name": "Saba Kharebashvili",
+      "club": "Başakşehir",
+      "position": "Bek",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "1290079721",
+      "name": "Rafael Luis",
+      "club": "Gençlerbirliği",
+      "position": "Orta Saha",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "3888739224",
+      "name": "Adedire Mebude",
+      "club": "Rizespor",
+      "position": "Kanat",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "893663708",
+      "name": "Noah Saviolo",
+      "club": "Trabzonspor",
+      "position": "Kanat",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "700266288",
+      "name": "Fabio Miretti",
+      "club": "Beşiktaş",
+      "position": "Orta Saha",
+      "birthdate": "2003",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "1244507778",
+      "name": "Yunus Emre Çift",
+      "club": "Samsunspor",
+      "position": "Stoper",
+      "birthdate": "2003",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "209691621",
+      "name": "Jakob Jessen",
+      "club": "Kasımpaşa",
+      "position": "Bek",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "649494645",
+      "name": "Metehan Altunbaş",
+      "club": "Kocaelispor",
+      "position": "Forvet",
+      "birthdate": "2003",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "2228132786",
+      "name": "Deniz Gül",
+      "club": "Galatasaray",
+      "position": "Forvet",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "2526940074",
+      "name": "Alex Matos",
+      "club": "Göztepe",
+      "position": "Orta Saha",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "460847711",
+      "name": "Kojo Peprah Oppong",
+      "club": "Fenerbahçe",
+      "position": "Stoper",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "2311645272",
+      "name": "Marcus Rafferty",
+      "club": "Kasımpaşa",
+      "position": "Orta Saha",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "153609866",
+      "name": "Yakup Kırtay",
+      "club": "Erzurumspor",
+      "position": "Stoper",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "1149851590",
+      "name": "Bartuğ Elmaz",
+      "club": "Fenerbahçe",
+      "position": "Orta Saha",
+      "birthdate": "2003",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "1707702357",
+      "name": "Dorgeles Nene",
+      "club": "Fenerbahçe",
+      "position": "Kanat",
+      "birthdate": "2002",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "3723921575",
+      "name": "Taylan Bulut",
+      "club": "Beşiktaş",
+      "position": "Bek",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "1747539401",
+      "name": "Emre Bilgin",
+      "club": "Eyüpspor",
+      "position": "Kaleci",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "2633848405",
+      "name": "Serdar Saatçı",
+      "club": "Çorum FK",
+      "position": "Stoper",
+      "birthdate": "2003",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "1528084168",
+      "name": "Deniz Ertaş",
+      "club": "Konyaspor",
+      "position": "Kaleci",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "3512447720",
+      "name": "Sinclair Armstrong",
+      "club": "Göztepe",
+      "position": "Forvet",
+      "birthdate": "2003",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "130361287",
+      "name": "Siaka Bakayoko",
+      "club": "Rizespor",
+      "position": "Stoper",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "4004191435",
+      "name": "Deniz Dilmen",
+      "club": "Başakşehir",
+      "position": "Kaleci",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "3619591894",
+      "name": "Amadou Cissé",
+      "club": "Amedspor",
+      "position": "Stoper",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "4161755920",
+      "name": "Iustin Doicaru",
+      "club": "Rizespor",
+      "position": "Kanat",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "3921002594",
+      "name": "Omar Ben Ali",
+      "club": "Alanyaspor",
+      "position": "Kanat",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "2122062469",
+      "name": "Rayan Lutin",
+      "club": "Amedspor",
+      "position": "Kanat",
+      "birthdate": "2003",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "2197592406",
+      "name": "Ali Turap Bülbül",
+      "club": "Amedspor",
+      "position": "Bek",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "3887339612",
+      "name": "Maestro",
+      "club": "Alanyaspor",
+      "position": "Orta Saha",
+      "birthdate": "2003",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "1666745879",
+      "name": "Youssoufa Moukoko",
+      "club": "Çorum FK",
+      "position": "Forvet",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "1099560616",
+      "name": "Ernest Poku",
+      "club": "Beşiktaş",
+      "position": "Kanat",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "2725297698",
+      "name": "Lesley Ugochukwu",
+      "club": "Galatasaray",
+      "position": "Orta Saha",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "188098879",
+      "name": "Arif Boşluk",
+      "club": "Konyaspor",
+      "position": "Bek",
+      "birthdate": "2003",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "2335270078",
+      "name": "Hamza Akman",
+      "club": "Eyüpspor",
+      "position": "Orta Saha",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "1684923051",
+      "name": "Hamza Güreler",
+      "club": "Başakşehir",
+      "position": "Stoper",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "928232460",
+      "name": "Renato Nhaga",
+      "club": "Galatasaray",
+      "position": "Orta Saha",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "2421223795",
+      "name": "Oskar Øhlenschlaeger",
+      "club": "Samsunspor",
+      "position": "Orta Saha",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "2242913284",
+      "name": "Emircan Gürlük",
+      "club": "Çorum FK",
+      "position": "Kanat",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "2469505646",
+      "name": "Jankat Yılmaz",
+      "club": "Galatasaray",
+      "position": "Kaleci",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "2670885288",
+      "name": "Tobias Fjeld Gulliksen",
+      "club": "Kocaelispor",
+      "position": "Orta Saha",
+      "birthdate": "2003",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "3861014478",
+      "name": "Igor Drapiński",
+      "club": "Samsunspor",
+      "position": "Stoper",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "4018709587",
+      "name": "Thiemoko Diarra",
+      "club": "Kasımpaşa",
+      "position": "Kanat",
+      "birthdate": "2003",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "3356290342",
+      "name": "Emirhan Boz",
+      "club": "Kasımpaşa",
+      "position": "Orta Saha",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "1416917873",
+      "name": "Victor Orakpo",
+      "club": "Gençlerbirliği",
+      "position": "Forvet",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "3677146329",
+      "name": "Semih Kılıçsoy",
+      "club": "Beşiktaş",
+      "position": "Forvet",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "166009819",
+      "name": "Nariman Akhundzade",
+      "club": "Erzurumspor",
+      "position": "Forvet",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "2911374653",
+      "name": "Moussa Diakité",
+      "club": "Rizespor",
+      "position": "Orta Saha",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "1996404589",
+      "name": "Ahmet Taha Dağbaşı",
+      "club": "Kasımpaşa",
+      "position": "Stoper",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "2626317326",
+      "name": "Emir Bars",
+      "club": "Konyaspor",
+      "position": "Orta Saha",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "4022890598",
+      "name": "Kazımcan Karataş",
+      "club": "Galatasaray",
+      "position": "Bek",
+      "birthdate": "2003",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "983741527",
+      "name": "Prince Martor",
+      "club": "Gençlerbirliği",
+      "position": "Kanat/Forvet",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "2652584957",
+      "name": "İzzet Çelik",
+      "club": "Alanyaspor",
+      "position": "Orta Saha",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "3654656675",
+      "name": "Yiğit Hamza Aydar",
+      "club": "Gençlerbirliği",
+      "position": "Stoper/Bek",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "1994390996",
+      "name": "Göktan Gürpüz",
+      "club": "Çorum FK",
+      "position": "Orta Saha",
+      "birthdate": "2003",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "2084806076",
+      "name": "Enes Albak",
+      "club": "Samsunspor",
+      "position": "Stoper/Bek",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "304945278",
+      "name": "Ege Bilim",
+      "club": "Kocaelispor",
+      "position": "Orta Saha",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "1567395513",
+      "name": "Bedirhan Özyurt",
+      "club": "Alanyaspor",
+      "position": "Stoper/Bek",
+      "birthdate": "2003",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "4191148669",
+      "name": "Arda Özyar",
+      "club": "Kocaelispor",
+      "position": "Forvet",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "3783818595",
+      "name": "Arda Yavuz",
+      "club": "Eyüpspor",
+      "position": "Stoper/Bek",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "3638752901",
+      "name": "Haluk Mustafa Tan",
+      "club": "Samsunspor",
+      "position": "Stoper/Bek",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "2112249572",
+      "name": "Göktuğ Erdem",
+      "club": "Gençlerbirliği",
+      "position": "Kanat/Forvet",
+      "birthdate": "2003",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "1585497446",
+      "name": "Mustafa Coşkun Tosun",
+      "club": "Rizespor",
+      "position": "Kanat/Forvet",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "2719748108",
+      "name": "Atakan Müjde",
+      "club": "Kasımpaşa",
+      "position": "Orta Saha",
+      "birthdate": "2003",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "3255106406",
+      "name": "Christ Sadia",
+      "club": "Eyüpspor",
+      "position": "Kanat/Forvet",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "3868934131",
+      "name": "Lawrence Agyekum",
+      "club": "Erzurumspor",
+      "position": "Orta Saha",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "460415783",
+      "name": "Sinan Alkaş",
+      "club": "Kasımpaşa",
+      "position": "Kanat/Forvet",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Abdou Sy",
+      "club": "Eyüpspor",
+      "position": "Kanat/Forvet",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "",
+      "name": "Ahmet Doğan Yıldırım",
+      "club": "Trabzonspor",
+      "position": "Kaleci",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Ahmet Sami Bircan",
+      "club": "Beşiktaş",
+      "position": "Kanat/Forvet",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Ahmet Tirpancı",
+      "club": "Konyaspor",
+      "position": "Stoper/Bek",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Alaettin Ekici",
+      "club": "Fenerbahçe",
+      "position": "Orta Saha",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Ali Habeşoğlu",
+      "club": "Trabzonspor",
+      "position": "Forvet",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Ali Osman Kalın",
+      "club": "Gaziantep FK",
+      "position": "Kanat/Forvet",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Ali Pagda",
+      "club": "Beşiktaş",
+      "position": "Kanat/Forvet",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Amara Diouf",
+      "club": "Fenerbahçe",
+      "position": "Kanat/Forvet",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "",
+      "name": "Anton Popov",
+      "club": "Eyüpspor",
+      "position": "Stoper/Bek",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "",
+      "name": "Arda Çağan Çelik",
+      "club": "Gençlerbirliği",
+      "position": "Stoper/Bek",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Arda Ünyay",
+      "club": "Galatasaray",
+      "position": "Stoper",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Arda Yılmaz",
+      "club": "Galatasaray",
+      "position": "Kaleci",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Arif Şimşir",
+      "club": "Çorum FK",
+      "position": "Kaleci",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Arseniy Batagov",
+      "club": "Trabzonspor",
+      "position": "Stoper",
+      "birthdate": "2002",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "",
+      "name": "Ata Yanık",
+      "club": "Konyaspor",
+      "position": "Stoper/Bek",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Ayaz Özcan",
+      "club": "Gençlerbirliği",
+      "position": "Kanat/Forvet",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Baran Gün",
+      "club": "Amedspor",
+      "position": "Doğrulanamadı",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Barış Demirağ",
+      "club": "Alanyaspor",
+      "position": "Doğrulanamadı",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Batuhan Çelik",
+      "club": "Başakşehir",
+      "position": "Kanat/Forvet",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Bayram Çapoğlu",
+      "club": "Rizespor",
+      "position": "Orta Saha",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Bedirhan Çetin",
+      "club": "Samsunspor",
+      "position": "Stoper/Bek",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Bedirhan Yıldız",
+      "club": "Kocaelispor",
+      "position": "Kanat/Forvet",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Berat Luş",
+      "club": "Galatasaray",
+      "position": "Kanat/Forvet",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Berhan Satlı",
+      "club": "Eyüpspor",
+      "position": "Stoper/Bek",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Berk Deniz Çukurcu",
+      "club": "Gençlerbirliği",
+      "position": "Kaleci",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Berk Kızıldemir",
+      "club": "Amedspor",
+      "position": "Kanat/Forvet",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Burak Enes Yıkıcı",
+      "club": "Gaziantep FK",
+      "position": "Orta Saha",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Can Armando Güner",
+      "club": "Galatasaray",
+      "position": "Kanat/Forvet",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Cemilhan Aslan",
+      "club": "Gaziantep FK",
+      "position": "Kaleci",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Cihan Çanak",
+      "club": "Trabzonspor",
+      "position": "Kanat",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Çağrı Balta",
+      "club": "Fenerbahçe",
+      "position": "Forvet",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Da Mata",
+      "club": "Konyaspor",
+      "position": "Stoper/Bek",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "",
+      "name": "Deniz Ceylan",
+      "club": "Kocaelispor",
+      "position": "Stoper/Bek",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Diabel Ndoye",
+      "club": "Eyüpspor",
+      "position": "Stoper/Bek",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "",
+      "name": "Dilhan Demir",
+      "club": "Amedspor",
+      "position": "Kanat/Forvet",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "",
+      "name": "Efe Arda Koyuncu",
+      "club": "Başakşehir",
+      "position": "Stoper/Bek",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Efe Berat Törüz",
+      "club": "Samsunspor",
+      "position": "Kaleci",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Efe Doğan",
+      "club": "Rizespor",
+      "position": "Kaleci",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Efe Sarıkaya",
+      "club": "Gaziantep FK",
+      "position": "Stoper/Bek",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Efe Yiğit Üstün",
+      "club": "Samsunspor",
+      "position": "Kaleci",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Ege Albayrak",
+      "club": "Kasımpaşa",
+      "position": "Kaleci",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Ege Öztürk",
+      "club": "Başakşehir",
+      "position": "Kaleci",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Egehan Şensoy",
+      "club": "Konyaspor",
+      "position": "Stoper/Bek",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Egemen Aydın",
+      "club": "Konyaspor",
+      "position": "Kaleci",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "El Chadaille Bitshiabu",
+      "club": "Galatasaray",
+      "position": "Stoper/Bek",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "",
+      "name": "Emin Eren Sayar",
+      "club": "Fenerbahçe",
+      "position": "Kanat/Forvet",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Emir Gündoğdu",
+      "club": "Konyaspor",
+      "position": "Kaleci",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Emir Karataş",
+      "club": "Alanyaspor",
+      "position": "Doğrulanamadı",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Emir Seçil",
+      "club": "Konyaspor",
+      "position": "Doğrulanamadı",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Emir Yaşar",
+      "club": "Beşiktaş",
+      "position": "Kaleci",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Emirhan Acar",
+      "club": "Erzurumspor",
+      "position": "Orta Saha",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Emirhan Doğan",
+      "club": "Konyaspor",
+      "position": "Doğrulanamadı",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Emirhan Yılmaz",
+      "club": "Rizespor",
+      "position": "Orta Saha",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Emirhan Yiğit",
+      "club": "Kasımpaşa",
+      "position": "Kanat/Forvet",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Emre Demir",
+      "club": "Alanyaspor",
+      "position": "Orta Saha",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Enes Emre Büyük",
+      "club": "Galatasaray",
+      "position": "Kaleci",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Engin Biterge",
+      "club": "Fenerbahçe",
+      "position": "Kaleci",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Enver Kulašin",
+      "club": "Gaziantep FK",
+      "position": "Kanat/Forvet",
+      "birthdate": "2003",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "",
+      "name": "Erk Arda Aslan",
+      "club": "Gençlerbirliği",
+      "position": "Kanat/Forvet",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Erol Can Çolak",
+      "club": "Trabzonspor",
+      "position": "Kaleci",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Eyüp Aydın",
+      "club": "Galatasaray",
+      "position": "Orta Saha",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Fatihhan Demir",
+      "club": "Kocaelispor",
+      "position": "Doğrulanamadı",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Furkan Çetinkaya",
+      "club": "Çorum FK",
+      "position": "Orta Saha",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Gidado Victor Ntino-Emo",
+      "club": "Gaziantep FK",
+      "position": "Orta Saha",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "",
+      "name": "Hakan Yılmaz",
+      "club": "Trabzonspor",
+      "position": "Kanat",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Hasan Ege Akdoğan",
+      "club": "Çorum FK",
+      "position": "Doğrulanamadı",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Hasan Oğul",
+      "club": "Gençlerbirliği",
+      "position": "Kaleci",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Hasan Yağız Döne",
+      "club": "Rizespor",
+      "position": "Kaleci",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Haydar Karataş",
+      "club": "Kocaelispor",
+      "position": "Kanat/Forvet",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Hulisi Destici",
+      "club": "Kocaelispor",
+      "position": "Doğrulanamadı",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Ibrahim Sabra",
+      "club": "Göztepe",
+      "position": "Kanat/Forvet",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "",
+      "name": "İbrahim Kağan Alkış",
+      "club": "Gaziantep FK",
+      "position": "Kaleci",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Kacper Kozłowski",
+      "club": "Gaziantep FK",
+      "position": "Orta Saha",
+      "birthdate": "2003",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "",
+      "name": "Kadir Gümüş",
+      "club": "Gaziantep FK",
+      "position": "Kanat/Forvet",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Kamil Efe Üregen",
+      "club": "Fenerbahçe",
+      "position": "Stoper/Bek",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Karamba Gassama",
+      "club": "Gaziantep FK",
+      "position": "Orta Saha",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "",
+      "name": "Kerem Fidan",
+      "club": "Samsunspor",
+      "position": "Doğrulanamadı",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Kuzey Sapaz",
+      "club": "Fenerbahçe",
+      "position": "Kaleci",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Luca Stancic",
+      "club": "Başakşehir",
+      "position": "Doğrulanamadı",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Mahmut Can Kara",
+      "club": "Alanyaspor",
+      "position": "Kaleci",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Mecit Deniz",
+      "club": "Kasımpaşa",
+      "position": "Doğrulanamadı",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Mehmet Şamil Öztürk",
+      "club": "Göztepe",
+      "position": "Kaleci",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Mert Furkan Bayram",
+      "club": "Alanyaspor",
+      "position": "Kaleci",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Mervan Müjdeci",
+      "club": "Gaziantep FK",
+      "position": "Orta Saha",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Muhammed Bektaş",
+      "club": "Kasımpaşa",
+      "position": "Kanat/Forvet",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Muhammed Damar",
+      "club": "Amedspor",
+      "position": "Orta Saha",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Muhammet Akmelek",
+      "club": "Gaziantep FK",
+      "position": "Kanat/Forvet",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Musa Karakaş",
+      "club": "Eyüpspor",
+      "position": "Kanat/Forvet",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Mustafa Hekimoğlu",
+      "club": "Beşiktaş",
+      "position": "Kanat/Forvet",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Mustafa Kuzey Akçay",
+      "club": "Trabzonspor",
+      "position": "Stoper/Bek",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Mustafa Yortaç",
+      "club": "Beşiktaş",
+      "position": "Doğrulanamadı",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Mücahit İbrahimoğlu",
+      "club": "Konyaspor",
+      "position": "Orta Saha",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Nevzat Üzel",
+      "club": "Göztepe",
+      "position": "Kaleci",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Ognjen Mimović",
+      "club": "Fenerbahçe",
+      "position": "Stoper/Bek",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "",
+      "name": "Oğuzhan Ertem",
+      "club": "Trabzonspor",
+      "position": "Orta Saha",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Onuralp Çevikkan",
+      "club": "Trabzonspor",
+      "position": "Kaleci",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Ozan Sevim",
+      "club": "Beşiktaş",
+      "position": "Kanat/Forvet",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Ömer Ahmet Ceyhan",
+      "club": "Eyüpspor",
+      "position": "Stoper/Bek",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Ömer Arda Kara",
+      "club": "Erzurumspor",
+      "position": "Stoper",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Ömer Çobanoğlu",
+      "club": "Konyaspor",
+      "position": "Orta Saha",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Salih Arıcı",
+      "club": "Kasımpaşa",
+      "position": "Doğrulanamadı",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Samet Kalkan Mehmet",
+      "club": "Gaziantep FK",
+      "position": "Stoper/Bek",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Stann Élysée Dalo",
+      "club": "Kasımpaşa",
+      "position": "Doğrulanamadı",
+      "birthdate": "",
+      "class": "Yabancı"
+    },
+    {
+      "api_id": "",
+      "name": "Şahin Dik",
+      "club": "Alanyaspor",
+      "position": "Kanat/Forvet",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Şerefhan Sağlık",
+      "club": "Erzurumspor",
+      "position": "Kaleci",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Taha Elgün",
+      "club": "Konyaspor",
+      "position": "Doğrulanamadı",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Taha Rençber",
+      "club": "Erzurumspor",
+      "position": "Stoper/Bek",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Talha Polat",
+      "club": "Kocaelispor",
+      "position": "Kaleci",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Taylan Aydın",
+      "club": "Kasımpaşa",
+      "position": "Stoper/Bek",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Umut Erdem",
+      "club": "Rizespor",
+      "position": "Stoper/Bek",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Umut Keseci",
+      "club": "Eyüpspor",
+      "position": "Kaleci",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Ümit Akdağ",
+      "club": "Beşiktaş",
+      "position": "Stoper/Bek",
+      "birthdate": "2003",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Yakup Ayan",
+      "club": "Rizespor",
+      "position": "Stoper/Bek",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Yakup Girişen",
+      "club": "Amedspor",
+      "position": "Kaleci",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Yasin Özcan",
+      "club": "Beşiktaş",
+      "position": "Stoper/Bek",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Yiğit Baran Karaoğlan",
+      "club": "Erzurumspor",
+      "position": "Stoper/Bek",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Yiğit Demir",
+      "club": "Eyüpspor",
+      "position": "Stoper/Bek",
+      "birthdate": "2003",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Yiğit Efe Demir",
+      "club": "Fenerbahçe",
+      "position": "Stoper/Bek",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Yusuf Kahraman",
+      "club": "Galatasaray",
+      "position": "Doğrulanamadı",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Yusuf Nazar",
+      "club": "Gaziantep FK",
+      "position": "Doğrulanamadı",
+      "birthdate": "",
+      "class": "Yerli"
+    },
+    {
+      "api_id": "",
+      "name": "Yusuf Şirin",
+      "club": "Göztepe",
+      "position": "Orta Saha",
+      "birthdate": "",
+      "class": "Yerli"
+    }
+  ]
+}
