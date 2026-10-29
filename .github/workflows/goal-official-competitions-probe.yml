@@ -1,0 +1,22 @@
+name: Probe official competitions 2026-27
+on:
+  push:
+    branches: [main]
+    paths: ['src/goal_official_competitions_probe.py','.github/workflows/goal-official-competitions-probe.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install goal-api
+      - name: Discover supported cup and international competitions
+        env:
+          GOAL_API_KEY: ${{ secrets.GOAL_API_KEY }}
+        run: python src/goal_official_competitions_probe.py
