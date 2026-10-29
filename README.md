@@ -60,6 +60,10 @@ Türkçe Google Sheets `IMPORTDATA` bazen `7.12` gibi noktalı ondalık sayılar
 
 Her gece 23:50 GitHub Actions, `official_totals_safe.csv` dosyasını da günceller. Canlı Sheets içe aktarımı bu dosyayı kullanır. Yenileme süresi Sheets'in kendi dış veri önbelleğine bağlıdır.
 
+### Maç kaydı bulunmayan oyuncuların gösterimi (29 Ekim 2026)
+
+Google Sheets'in üç ana listesinde API'nin maç kaydı döndürmediği adayların **dakika, maç, ilk 11, gol, asist, sarı ve kırmızı kartı 0** gösterilir. **Reyting boş** bırakılır; maç kaydı yokken reyting 0 olamaz. Bu görsel 0, bağlantılı kaynakta kayıt bulunmadığını gösterir; Süper Lig, Türkiye Kupası veya alt yaş milli takım gibi kapsamı eksik maçlarda gerçekten hiç oynamadığının kanıtı değildir. Ayrım sütun başlığı notunda ve veri durumu açıklamasında belirtilir. CSV'de bu bilinmezlik `N/A` olarak tutulur; formüller sadece ekranda 0 gösterir.
+
 ## Kaynak ve sınırlar
 
 GOAL API resmî Python SDK'sı: https://github.com/goal-api/goal-api-python  
