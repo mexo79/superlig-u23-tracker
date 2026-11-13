@@ -7,13 +7,13 @@ Wagner Pina|Trabzonspor,1353265918,Wagner Pina,Trabzonspor,Süper Lig,Trabzonspo
 Wagner Pina|Trabzonspor,1353265918,Wagner Pina,Trabzonspor,Konferans Ligi,Trabzonspor,Kulüp,200,3,2,6.93,0,0,0,0,GOAL API — veri bulunan maçlar
 Wagner Pina|Trabzonspor,1353265918,Wagner Pina,Trabzonspor,Afrika Uluslar Kupası Elemeleri,Cape Verde,Millî takım,180,2,2,6.0,0,0,0,0,GOAL API — veri bulunan maçlar
 Ousmane Diabate|Gençlerbirliği,4142042117,Ousmane Diabate,Gençlerbirliği,Süper Lig,Gençlerbirliği,Kulüp,820,10,9,6.83,1,1,5,0,95/99 maç (kısmi)
-Ousmane Diabate|Gençlerbirliği,4142042117,Ousmane Diabate,Gençlerbirliği,Afrika Uluslar Kupası Elemeleri,Guinea,Millî takım,139,2,1,6.5,0,0,0,0,GOAL API — veri bulunan maçlar
+Ousmane Diabate|Gençlerbirliği,4142042117,Ousmane Diabate,Gençlerbirliği,Afrika Uluslar Kupası Elemeleri,Guinea,Millî takım,229,3,2,6.67,0,0,0,0,GOAL API — veri bulunan maçlar
 Serhat Öztaşdelen|Kocaelispor,192888559,Serhat Öztaşdelen,Kocaelispor,Süper Lig,Kocaelispor,Kulüp,999,11,11,7.22,0,0,1,0,95/99 maç (kısmi)
 Chibuike Nwaiwu|Trabzonspor,1137974350,Chibuike Nwaiwu,Trabzonspor,Süper Lig,Trabzonspor,Kulüp,983,11,11,7.41,1,1,4,0,95/99 maç (kısmi)
 Chibuike Nwaiwu|Trabzonspor,1137974350,Chibuike Nwaiwu,Trabzonspor,Konferans Ligi,Trabzonspor,Kulüp,90,1,1,8.0,0,0,1,0,GOAL API — veri bulunan maçlar
 Junior Olaitan|Beşiktaş,228497691,Junior Olaitan,Beşiktaş,Süper Lig,Beşiktaş,Kulüp,590,9,7,7.19,1,2,0,0,95/99 maç (kısmi)
 Junior Olaitan|Beşiktaş,228497691,Junior Olaitan,Beşiktaş,Avrupa Ligi,Besiktas,Kulüp,282,4,3,7.47,2,3,0,0,GOAL API — veri bulunan maçlar
-Junior Olaitan|Beşiktaş,228497691,Junior Olaitan,Beşiktaş,Afrika Uluslar Kupası Elemeleri,Benin,Millî takım,102,2,2,7.0,0,0,1,0,GOAL API — veri bulunan maçlar
+Junior Olaitan|Beşiktaş,228497691,Junior Olaitan,Beşiktaş,Afrika Uluslar Kupası Elemeleri,Benin,Millî takım,169,3,3,7.2,0,1,1,0,GOAL API — veri bulunan maçlar
 Josafat Mendes|Samsunspor,3442618326,Josafat Mendes,Samsunspor,Süper Lig,Samsunspor,Kulüp,978,11,11,6.67,1,1,1,0,95/99 maç (kısmi)
 Taha Altıkardeş|Göztepe,4196759639,Taha Altıkardeş,Göztepe,Süper Lig,Göztepe,Kulüp,916,10,10,6.54,0,0,2,0,95/99 maç (kısmi)
 Adem Arous|Kasımpaşa,2315541159,Adem Arous,Kasımpaşa,Süper Lig,Kasımpaşa,Kulüp,723,10,8,7.08,2,1,1,0,95/99 maç (kısmi)
@@ -50,6 +50,7 @@ Abbosbek Fayzullaev|Başakşehir,2705136785,Abbosbek Fayzullaev,Başakşehir,Sü
 Abbosbek Fayzullaev|Başakşehir,2705136785,Abbosbek Fayzullaev,Başakşehir,Konferans Ligi,Basaksehir,Kulüp,78,2,0,7.0,0,0,0,0,GOAL API — veri bulunan maçlar
 Kassoum Ouattara|Beşiktaş,3461968516,Kassoum Ouattara,Beşiktaş,Süper Lig,Beşiktaş,Kulüp,112,5,0,6.9,0,0,1,0,95/99 maç (kısmi)
 Kassoum Ouattara|Beşiktaş,3461968516,Kassoum Ouattara,Beşiktaş,Avrupa Ligi,Besiktas,Kulüp,364,4,4,6.45,0,0,0,0,GOAL API — veri bulunan maçlar
+Kassoum Ouattara|Beşiktaş,3461968516,Kassoum Ouattara,Beşiktaş,Afrika Uluslar Kupası Elemeleri,Ivory Coast,Millî takım,25,1,0,6.9,0,0,0,0,GOAL API — veri bulunan maçlar
 Yusuf Barası|Eyüpspor,30412153,Yusuf Barası,Eyüpspor,Süper Lig,Eyüpspor,Kulüp,470,11,4,6.45,0,0,0,0,95/99 maç (kısmi)
 Ermin Mahmić|Çorum FK,4101782367,Ermin Mahmić,Çorum FK,Süper Lig,Çorum FK,Kulüp,317,9,2,6.84,2,1,0,0,95/99 maç (kısmi)
 Ermin Mahmić|Çorum FK,4101782367,Ermin Mahmić,Çorum FK,UEFA Uluslar Ligi,Bosnia & Herzegovina,Millî takım,152,4,2,7.0,1,0,1,0,GOAL API — veri bulunan maçlar
@@ -69,7 +70,7 @@ Jakob Jessen|Kasımpaşa,209691621,Jakob Jessen,Kasımpaşa,Süper Lig,Kasımpa�
 Metehan Altunbaş|Kocaelispor,649494645,Metehan Altunbaş,Kocaelispor,Süper Lig,Kocaelispor,Kulüp,342,11,3,6.59,1,0,0,0,95/99 maç (kısmi)
 Deniz Gül|Galatasaray,2228132786,Deniz Gül,Galatasaray,Süper Lig,Galatasaray,Kulüp,296,7,3,6.33,0,0,1,0,95/99 maç (kısmi)
 Deniz Gül|Galatasaray,2228132786,Deniz Gül,Galatasaray,Şampiyonlar Ligi,Galatasaray,Kulüp,41,2,0,6.75,0,0,1,0,GOAL API — veri bulunan maçlar
-Deniz Gül|Galatasaray,2228132786,Deniz Gül,Galatasaray,UEFA Uluslar Ligi,Turkey,Millî takım,39,4,0,6.5,0,0,0,0,GOAL API — veri bulunan maçlar
+Deniz Gül|Galatasaray,2228132786,Deniz Gül,Galatasaray,UEFA Uluslar Ligi,Turkey,Millî takım,71,5,0,6.57,0,0,0,0,GOAL API — veri bulunan maçlar
 Alex Matos|Göztepe,2526940074,Alex Matos,Göztepe,Süper Lig,Göztepe,Kulüp,290,8,4,6.96,1,0,3,0,95/99 maç (kısmi)
 Kojo Peprah Oppong|Fenerbahçe,460847711,Kojo Peprah Oppong,Fenerbahçe,Süper Lig,Fenerbahçe,Kulüp,233,5,2,7.3,0,0,0,0,95/99 maç (kısmi)
 Kojo Peprah Oppong|Fenerbahçe,460847711,Kojo Peprah Oppong,Fenerbahçe,Şampiyonlar Ligi,Fenerbahce,Kulüp,159,2,1,7.0,0,0,0,0,GOAL API — veri bulunan maçlar
@@ -107,7 +108,7 @@ Hamza Akman|Eyüpspor,2335270078,Hamza Akman,Eyüpspor,Süper Lig,Eyüpspor,Kul�
 Hamza Güreler|Başakşehir,1684923051,Hamza Güreler,Başakşehir,Süper Lig,Başakşehir,Kulüp,96,4,0,6.43,0,0,1,0,95/99 maç (kısmi)
 Renato Nhaga|Galatasaray,928232460,Renato Nhaga,Galatasaray,Süper Lig,Galatasaray,Kulüp,56,4,0,6.4,0,0,0,0,95/99 maç (kısmi)
 Renato Nhaga|Galatasaray,928232460,Renato Nhaga,Galatasaray,Şampiyonlar Ligi,Galatasaray,Kulüp,19,2,0,6.65,0,0,0,0,GOAL API — veri bulunan maçlar
-Renato Nhaga|Galatasaray,928232460,Renato Nhaga,Galatasaray,Afrika Uluslar Kupası Elemeleri,Guinea Bissau,Millî takım,61,1,1,7.0,0,1,0,0,GOAL API — veri bulunan maçlar
+Renato Nhaga|Galatasaray,928232460,Renato Nhaga,Galatasaray,Afrika Uluslar Kupası Elemeleri,Guinea Bissau,Millî takım,81,2,1,7.6,1,1,0,0,GOAL API — veri bulunan maçlar
 Oskar Øhlenschlaeger|Samsunspor,2421223795,Oskar Øhlenschlaeger,Samsunspor,Süper Lig,Samsunspor,Kulüp,180,4,1,6.55,0,0,0,0,95/99 maç (kısmi)
 Emircan Gürlük|Çorum FK,2242913284,Emircan Gürlük,Çorum FK,Süper Lig,Çorum FK,Kulüp,121,4,1,6.43,0,0,0,0,95/99 maç (kısmi)
 Jankat Yılmaz|Galatasaray,2469505646,Jankat Yılmaz,Galatasaray,Süper Lig,Galatasaray,Kulüp,90,1,1,6.0,0,0,0,0,95/99 maç (kısmi)
