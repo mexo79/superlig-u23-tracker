@@ -33,7 +33,7 @@ Mahamadou Susoho|Kocaelispor,4095483625,Mahamadou Susoho,Kocaelispor,Süper Lig,
 Zakaria Ariss|Rizespor,4179083274,Zakaria Ariss,Rizespor,Süper Lig,Rizespor,Kulüp,759,9,8,6.44,0,0,3,0,95/99 maç (kısmi)
 Baran Gezek|Alanyaspor,1478340734,Baran Gezek,Alanyaspor,Süper Lig,Alanyaspor,Kulüp,713,10,9,7.07,0,0,0,0,95/99 maç (kısmi)
 Rajmund Tóth|Konyaspor,2594401669,Rajmund Tóth,Konyaspor,Süper Lig,Konyaspor,Kulüp,583,10,7,6.65,1,0,1,0,95/99 maç (kısmi)
-Rajmund Tóth|Konyaspor,2594401669,Rajmund Tóth,Konyaspor,UEFA Uluslar Ligi,Hungary,Millî takım,63,3,0,7.33,0,1,1,0,GOAL API — veri bulunan maçlar
+Rajmund Tóth|Konyaspor,2594401669,Rajmund Tóth,Konyaspor,UEFA Uluslar Ligi,Hungary,Millî takım,83,4,0,7.08,0,1,1,0,GOAL API — veri bulunan maçlar
 Richard Akonnor|Göztepe,3594082600,Richard Akonnor,Göztepe,Süper Lig,Göztepe,Kulüp,730,9,8,7.31,0,0,1,0,95/99 maç (kısmi)
 Ayberk Karapo|Kasımpaşa,4031357219,Ayberk Karapo,Kasımpaşa,Süper Lig,Kasımpaşa,Kulüp,710,11,8,7.09,0,0,3,0,95/99 maç (kısmi)
 İlhan Fakılı|Beşiktaş,2650472675,İlhan Fakılı,Beşiktaş,Süper Lig,Beşiktaş,Kulüp,357,9,2,6.98,1,1,2,0,95/99 maç (kısmi)
@@ -53,7 +53,7 @@ Kassoum Ouattara|Beşiktaş,3461968516,Kassoum Ouattara,Beşiktaş,Avrupa Ligi,B
 Kassoum Ouattara|Beşiktaş,3461968516,Kassoum Ouattara,Beşiktaş,Afrika Uluslar Kupası Elemeleri,Ivory Coast,Millî takım,25,1,0,6.9,0,0,0,0,GOAL API — veri bulunan maçlar
 Yusuf Barası|Eyüpspor,30412153,Yusuf Barası,Eyüpspor,Süper Lig,Eyüpspor,Kulüp,470,11,4,6.45,0,0,0,0,95/99 maç (kısmi)
 Ermin Mahmić|Çorum FK,4101782367,Ermin Mahmić,Çorum FK,Süper Lig,Çorum FK,Kulüp,317,9,2,6.84,2,1,0,0,95/99 maç (kısmi)
-Ermin Mahmić|Çorum FK,4101782367,Ermin Mahmić,Çorum FK,UEFA Uluslar Ligi,Bosnia & Herzegovina,Millî takım,152,4,2,7.0,1,0,1,0,GOAL API — veri bulunan maçlar
+Ermin Mahmić|Çorum FK,4101782367,Ermin Mahmić,Çorum FK,UEFA Uluslar Ligi,Bosnia & Herzegovina,Millî takım,203,5,2,7.0,1,1,1,0,GOAL API — veri bulunan maçlar
 Ermin Mahmić|Çorum FK,4101782367,Ermin Mahmić,Çorum FK,2026 Dünya Kupası,Bosnia & Herzegovina,Millî takım,39,1,0,6.0,0,0,0,0,GOAL API — veri bulunan maçlar
 Arda Usluoğlu|Alanyaspor,3207498618,Arda Usluoğlu,Alanyaspor,Süper Lig,Alanyaspor,Kulüp,436,8,6,6.35,2,0,1,0,95/99 maç (kısmi)
 Antoine Sekongo|Samsunspor,3748556030,Antoine Sekongo,Samsunspor,Süper Lig,Samsunspor,Kulüp,522,11,5,6.7,1,0,1,0,95/99 maç (kısmi)
@@ -98,6 +98,7 @@ Rayan Lutin|Amedspor,2122062469,Rayan Lutin,Amedspor,Süper Lig,Amedspor,Kulüp,
 Rayan Lutin|Amedspor,2122062469,Rayan Lutin,Amedspor,Afrika Uluslar Kupası Elemeleri,Comoros,Millî takım,28,1,0,7.0,0,0,0,0,GOAL API — veri bulunan maçlar
 Ali Turap Bülbül|Amedspor,2197592406,Ali Turap Bülbül,Amedspor,Süper Lig,Amedspor,Kulüp,218,7,0,6.39,0,0,0,0,95/99 maç (kısmi)
 Maestro|Alanyaspor,3887339612,Maestro,Alanyaspor,Süper Lig,Alanyaspor,Kulüp,314,5,3,6.62,0,0,1,0,95/99 maç (kısmi)
+Maestro|Alanyaspor,3887339612,Maestro,Alanyaspor,Afrika Uluslar Kupası Elemeleri,Angola,Millî takım,75,1,1,7.2,0,0,0,0,GOAL API — veri bulunan maçlar
 Youssoufa Moukoko|Çorum FK,1666745879,Youssoufa Moukoko,Çorum FK,Süper Lig,Çorum FK,Kulüp,165,8,0,6.8,1,1,1,0,95/99 maç (kısmi)
 Ernest Poku|Beşiktaş,1099560616,Ernest Poku,Beşiktaş,Süper Lig,Beşiktaş,Kulüp,101,4,1,6.55,1,0,0,0,95/99 maç (kısmi)
 Ernest Poku|Beşiktaş,1099560616,Ernest Poku,Beşiktaş,Avrupa Ligi,Besiktas,Kulüp,115,2,1,6.95,1,1,0,0,GOAL API — veri bulunan maçlar
